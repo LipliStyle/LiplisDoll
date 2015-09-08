@@ -1,4 +1,10 @@
-﻿using System;
+﻿//=======================================================================
+//  ClassName : InputWindow
+// ■概要      : LiplisDollのメインクラス
+//
+// Copyright(c) 2014 LipliStyle さちん MITライセンス
+//=======================================================================
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
