@@ -289,7 +289,7 @@ namespace Liplis.Web
                 //結果を返す
                 return convertRlShtNjToMsg(result);
             }
-            catch
+            catch(Exception ex)
             {
                 return msg;
             }

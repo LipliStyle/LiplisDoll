@@ -34,7 +34,6 @@ namespace Liplis.Activity
             this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiCopy = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiShow = new System.Windows.Forms.ToolStripMenuItem();
-            this.lnkLbl = new System.Windows.Forms.LinkLabel();
             this.cmst = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmitTitleCopy = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmitLinkCopy = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,15 +65,6 @@ namespace Liplis.Activity
             this.tsmiShow.Name = "tsmiShow";
             resources.ApplyResources(this.tsmiShow, "tsmiShow");
             this.tsmiShow.Click += new System.EventHandler(this.tsmiShow_Click);
-            // 
-            // lnkLbl
-            // 
-            this.lnkLbl.BackColor = System.Drawing.Color.Transparent;
-            this.lnkLbl.ContextMenuStrip = this.cmst;
-            resources.ApplyResources(this.lnkLbl, "lnkLbl");
-            this.lnkLbl.Name = "lnkLbl";
-            this.lnkLbl.UseWaitCursor = true;
-            this.lnkLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelClickEvent);
             // 
             // cmst
             // 
@@ -133,13 +123,18 @@ namespace Liplis.Activity
             // 
             resources.ApplyResources(this, "$this");
             this.BackgroundImage = global::Liplis.Properties.Resources.window;
+            this.ControlBox = false;
             this.Controls.Add(this.wbTalk);
-            this.Controls.Add(this.lnkLbl);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "ActivityTalk";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ActivityTalk_FormClosing);
             this.Load += new System.EventHandler(this.WinTalk_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ActivityTalk_MouseDown);
             this.MouseEnter += new System.EventHandler(this.ActivityTalk_MouseEnter);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ActivityTalk_MouseMove);
+            this.Resize += new System.EventHandler(this.ActivityTalk_Resize);
             this.cms.ResumeLayout(false);
             this.cmst.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -158,7 +153,6 @@ namespace Liplis.Activity
         private System.Windows.Forms.ToolStripMenuItem tsmitDogaDown;
         private System.Windows.Forms.ToolStripMenuItem tsmitMp3Down;
         private System.Windows.Forms.ToolStripMenuItem mHTToolStripMenuItem;
-        protected System.Windows.Forms.LinkLabel lnkLbl;
         protected System.Windows.Forms.WebBrowser wbTalk;
     }
 }

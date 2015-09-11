@@ -17,8 +17,6 @@ using Liplis.Common;
 using Liplis.Fct;
 using Liplis.Msg;
 using Liplis.Web;
-using Liplis.Web.Clalis;
-using Liplis.Xml;
 using Liplis.Voice;
 
 namespace Liplis.MainSystem
@@ -61,7 +59,7 @@ namespace Liplis.MainSystem
         protected ActivitySetting ast;
         protected ActivityLog al;
         protected ActivityChar ac;
-        protected InputWindow iw;
+        protected LpsInputWindow iw;
         #endregion
 
         ///=====================================
@@ -343,7 +341,7 @@ namespace Liplis.MainSystem
                 ast = new ActivitySetting(this, this.os, this.owf);
                 
                 //インプットウインドウ
-                iw = new InputWindow(this);
+                iw = new LpsInputWindow(this, this.os, this.oss);
                 iw.Show();
 
                 //オーナーフォーム登録
@@ -538,7 +536,7 @@ namespace Liplis.MainSystem
                 }//ウインドウモードをウィズURLモードに設定
                 else
                 {
-                    at.setWindowMode(LiplisDefine.WIN_MODE_TEXT_ONLY);
+
                 }//ウインドウモードをテキストモードに設定
 
                 
@@ -1033,9 +1031,6 @@ namespace Liplis.MainSystem
                     break;
                 case LiplisDefine.LM_CHANGE_MODE:          //2015/09/04 Liplis4.5.7 おしゃべり品どう更新ロジック変更
                     chatFreqChange();
-                    break;
-                case 99:
-                    talk(param[0], 1);
                     break;
                     
 
@@ -1613,8 +1608,11 @@ namespace Liplis.MainSystem
             outRangeRecoveryAuto();
 
             //ウインドウ表示領域の再計算
-            at.setLocation(this.Location.X, this.Location.Y, this.Width, this.Height, this.nowDirection);
-
+            if(os.talkChase == 1)
+            {
+                at.setLocation(this.Location.X, this.Location.Y, this.Width, this.Height, this.nowDirection);
+            }
+            
             //右クリックなら、CMPを出現させる
             if (e.Button == MouseButtons.Right)
             {
@@ -2084,7 +2082,7 @@ namespace Liplis.MainSystem
         /// <param name="talkString">おしゃべり内容</param>
         /// <param name="emotion">+-ありのエモーション</param>
         #region talk
-        protected void talk(string talkString, int emotion)
+        public void talk(string talkString, int emotion)
         {
             try
             {
@@ -2108,7 +2106,7 @@ namespace Liplis.MainSystem
                 LpsLogControllerCus.writingLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, err.ToString());
             }
         }
-        protected void talk(MsgShortNews talkMessage)
+        public void talk(MsgShortNews talkMessage)
         {
             try
             {
@@ -3041,7 +3039,7 @@ namespace Liplis.MainSystem
         /// ニュートラル状態に戻す
         /// </summary>
         #region setObjectBodyNeutral
-        protected bool setObjectBodyNeutral()
+        public bool setObjectBodyNeutral()
         {
             try
             {

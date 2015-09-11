@@ -111,6 +111,9 @@
             this.tsmHelpLiplisWindows = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmHelpLipliStyle = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmVersion = new System.Windows.Forms.ToolStripMenuItem();
+            this.grpSetting = new System.Windows.Forms.GroupBox();
+            this.chkWindowChase = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.spc)).BeginInit();
             this.spc.Panel1.SuspendLayout();
             this.spc.Panel2.SuspendLayout();
             this.spc.SuspendLayout();
@@ -132,6 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWindow2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWindow1)).BeginInit();
             this.ms.SuspendLayout();
+            this.grpSetting.SuspendLayout();
             this.SuspendLayout();
             // 
             // spc
@@ -194,6 +198,7 @@
             this.flp.Controls.Add(this.grpVoice);
             this.flp.Controls.Add(this.grpSynchronism);
             this.flp.Controls.Add(this.grpWindow);
+            this.flp.Controls.Add(this.grpSetting);
             this.flp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flp.Location = new System.Drawing.Point(0, 0);
             this.flp.Name = "flp";
@@ -213,7 +218,7 @@
             this.grpSetActive.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpSetActive.Location = new System.Drawing.Point(3, 3);
             this.grpSetActive.Name = "grpSetActive";
-            this.grpSetActive.Size = new System.Drawing.Size(517, 70);
+            this.grpSetActive.Size = new System.Drawing.Size(517, 66);
             this.grpSetActive.TabIndex = 91;
             this.grpSetActive.TabStop = false;
             this.grpSetActive.Text = "アクティブ度";
@@ -312,7 +317,7 @@
             this.grpVoice.Controls.Add(this.cmbVoiceSelect);
             this.grpVoice.Controls.Add(this.chkVoice);
             this.grpVoice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grpVoice.Location = new System.Drawing.Point(3, 79);
+            this.grpVoice.Location = new System.Drawing.Point(3, 75);
             this.grpVoice.Name = "grpVoice";
             this.grpVoice.Size = new System.Drawing.Size(517, 316);
             this.grpVoice.TabIndex = 100;
@@ -665,7 +670,7 @@
             this.grpSynchronism.Controls.Add(this.groupBox2);
             this.grpSynchronism.Controls.Add(this.groupBox1);
             this.grpSynchronism.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grpSynchronism.Location = new System.Drawing.Point(3, 401);
+            this.grpSynchronism.Location = new System.Drawing.Point(3, 397);
             this.grpSynchronism.Name = "grpSynchronism";
             this.grpSynchronism.Size = new System.Drawing.Size(517, 177);
             this.grpSynchronism.TabIndex = 101;
@@ -788,7 +793,7 @@
             this.grpWindow.Controls.Add(this.picWindow1);
             this.grpWindow.Controls.Add(this.rbWindow1);
             this.grpWindow.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grpWindow.Location = new System.Drawing.Point(3, 584);
+            this.grpWindow.Location = new System.Drawing.Point(3, 580);
             this.grpWindow.Name = "grpWindow";
             this.grpWindow.Size = new System.Drawing.Size(517, 172);
             this.grpWindow.TabIndex = 103;
@@ -1001,6 +1006,27 @@
             this.tsmVersion.Text = "バージョン情報";
             this.tsmVersion.Click += new System.EventHandler(this.tsmVersion_Click);
             // 
+            // grpSetting
+            // 
+            this.grpSetting.Controls.Add(this.chkWindowChase);
+            this.grpSetting.Location = new System.Drawing.Point(3, 758);
+            this.grpSetting.Name = "grpSetting";
+            this.grpSetting.Size = new System.Drawing.Size(517, 61);
+            this.grpSetting.TabIndex = 14;
+            this.grpSetting.TabStop = false;
+            this.grpSetting.Text = "その他設定";
+            // 
+            // chkWindowChase
+            // 
+            this.chkWindowChase.AutoSize = true;
+            this.chkWindowChase.Location = new System.Drawing.Point(9, 22);
+            this.chkWindowChase.Name = "chkWindowChase";
+            this.chkWindowChase.Size = new System.Drawing.Size(190, 16);
+            this.chkWindowChase.TabIndex = 1;
+            this.chkWindowChase.Text = "ウインドウをキャラクターに追随させる";
+            this.chkWindowChase.UseVisualStyleBackColor = true;
+            this.chkWindowChase.CheckedChanged += new System.EventHandler(this.chkWindowChase_CheckedChanged);
+            // 
             // ActivitySetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1017,6 +1043,7 @@
             this.Load += new System.EventHandler(this.ActivitySetting_Load);
             this.spc.Panel1.ResumeLayout(false);
             this.spc.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spc)).EndInit();
             this.spc.ResumeLayout(false);
             this.flpButton.ResumeLayout(false);
             this.flp.ResumeLayout(false);
@@ -1043,6 +1070,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWindow1)).EndInit();
             this.ms.ResumeLayout(false);
             this.ms.PerformLayout();
+            this.grpSetting.ResumeLayout(false);
+            this.grpSetting.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1132,5 +1161,7 @@
         private System.Windows.Forms.TextBox txtSpeed;
         private System.Windows.Forms.TrackBar trackSpeed;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox grpSetting;
+        private System.Windows.Forms.CheckBox chkWindowChase;
     }
 }

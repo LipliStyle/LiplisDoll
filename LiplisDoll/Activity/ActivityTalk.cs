@@ -25,8 +25,8 @@ namespace Liplis.Activity
     {
         ///============================
         /// ウインドウサイズ
-        protected const int WIDTH = 320;
-        protected const int HEIGHT = 140;
+        protected const int WIDTH = 334;
+        protected const int HEIGHT = 142;
 
         ///============================
         /// プロパティ
@@ -91,8 +91,6 @@ namespace Liplis.Activity
 
             //ホイールの初期化
             initWheel();
-
-            detectContextMenu();
         }
         public ActivityTalk()
         {
@@ -115,9 +113,6 @@ namespace Liplis.Activity
 
             //セットバックグラウンド
             reqSetBackGround = new LpsDelegate.dlgVoidToVoid(dlgSetBackGround);
-
-            //セットウインドウモード
-            reqSetWindowMode = new LpsDelegate.dlgI1ToVoid(dlgSetWindowMode);
 
             //コールブラウザ
             reqCallBrowser = new LpsDelegate.dlgVoidToVoid(dlgCallBrowser);
@@ -206,9 +201,6 @@ namespace Liplis.Activity
 
             //黒なら補正
             if(linkColor.R == 0 && linkColor.G == 0 && linkColor.B == 0){linkColor = Color.Blue;}
-
-            //リンクカラー
-            lnkLbl.LinkColor = linkColor;
 
             //テキストカラー
             txtColor = LpsLiplisUtil.checkColor(oss.textColor, Color.Black);
@@ -376,6 +368,19 @@ namespace Liplis.Activity
         }
         #endregion
 
+
+        /// <summary>
+        /// りサイズ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        #region ActivityTalk_Resize 
+        private void ActivityTalk_Resize(object sender, EventArgs e)
+        {
+            //this.wbTalk.Width = this.Width - 2;
+            //this.wbTalk.Height = this.Height - 28;
+        }
+        #endregion
 
         ///====================================================================
         ///
@@ -709,28 +714,6 @@ namespace Liplis.Activity
         #endregion
 
         /// <summary>
-        /// dlgSetWindowMode
-        /// ウインドウモードを設定する
-        /// </summary>
-        #region dlgSetWindowMode
-        protected void dlgSetWindowMode(int mode)
-        {
-            if (mode == 0)
-            {
-                setModeTextOnly();
-            }
-            else if (mode == 1)
-            {
-                setModeWithUrl();
-            }
-            else
-            {
-                setModeTextOnly();
-            }
-        }
-        #endregion
-
-        /// <summary>
         /// ブラウザをコールする
         /// </summary>
         #region dlgCallBrowser
@@ -843,55 +826,6 @@ namespace Liplis.Activity
         #endregion
 
         /// <summary>
-        /// setModeTextOnly
-        /// テキストオンリーモードに設定する
-        /// </summary>
-        #region setModeTextOnly
-        protected void setModeTextOnly()
-        {
-            try
-            {
-                this.lnkLbl.Text = "";
-                this.lnkLbl.Top = 4;
-                this.lnkLbl.Left = 8;
-                this.lnkLbl.Width = 304;
-                this.lnkLbl.Height = 12;
-                this.lnkLbl.Enabled = false;
-                this.lnkLbl.Visible = false;
-            }
-            catch (System.Exception err)
-            {
-                LpsLogControllerCus.writingLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, err.ToString());
-            }
-        }
-        #endregion
-
-        /// <summary>
-        /// setModeWithUrl
-        /// ウイズURLモードに設定する
-        /// </summary>
-        #region setModeWithUrl
-        protected void setModeWithUrl()
-        {
-            try
-            {
-                this.lnkLbl.Text = title;
-                this.lnkLbl.Top = 4;
-                this.lnkLbl.Left = 8;
-                this.lnkLbl.Width = 304;
-                this.lnkLbl.Height = 12;
-                this.lnkLbl.Enabled = true;
-                this.lnkLbl.Visible = true;
-
-            }
-            catch (System.Exception err)
-            {
-                LpsLogControllerCus.writingLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, err.ToString());
-            }
-        }
-        #endregion
-
-        /// <summary>
         /// プロセス起動のスレッド
         /// </summary>
         #region doCallBrowzer
@@ -931,25 +865,33 @@ namespace Liplis.Activity
                 Console.Write(err);
             }
         }
+
+
+
         #endregion
 
-        #region コンテキストメニューの差し替え(廃止)
-        public virtual void detectContextMenu()
+        private void ActivityTalk_MouseDown(object sender, MouseEventArgs e)
         {
-            if (wbTalk.Document != null)
+            if (e.Button == MouseButtons.Left)
             {
-                wbTalk.Document.ContextMenuShowing += new HtmlElementEventHandler(Document_ContextMenuShowing);
+                //位置を記憶する
+                mousePoint = new Point(e.X, e.Y);
+
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                //位置を記憶する
             }
         }
 
-        void Document_ContextMenuShowing(object sender, HtmlElementEventArgs e)
+        private void ActivityTalk_MouseMove(object sender, MouseEventArgs e)
         {
-            cmst.Show(e.MousePosition);
-            e.ReturnValue = false;
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            {
+                //位置を記憶する
+                this.Left += e.X - mousePoint.X;
+                this.Top += e.Y - mousePoint.Y;
+            }
         }
-        #endregion
-
-
-
     }
 }

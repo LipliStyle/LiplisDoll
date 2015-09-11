@@ -28,7 +28,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -43,6 +43,10 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="LiplisLibCommon, Version=4.6.5730.1606, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\LiplisLibCommon.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\DLL\Newtonsoft.Json\Net35\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -120,11 +124,11 @@
     <Compile Include="Fct\FctLiplisMsg.cs" />
     <Compile Include="Fct\FctLiplisTweet.cs" />
     <Compile Include="Fct\FctWindowFileLoader.cs" />
-    <Compile Include="MainSystem\InputWindow.cs">
+    <Compile Include="MainSystem\LpsInputWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainSystem\InputWindow.Designer.cs">
-      <DependentUpon>InputWindow.cs</DependentUpon>
+    <Compile Include="MainSystem\LpsInputWindow.Designer.cs">
+      <DependentUpon>LpsInputWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Msg\MsgEmotion.cs" />
     <Compile Include="Msg\ObjDownloadHst.cs" />
@@ -222,8 +226,8 @@
     <EmbeddedResource Include="Activity\ActivityVersion.resx">
       <DependentUpon>ActivityVersion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainSystem\InputWindow.resx">
-      <DependentUpon>InputWindow.cs</DependentUpon>
+    <EmbeddedResource Include="MainSystem\LpsInputWindow.resx">
+      <DependentUpon>LpsInputWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainSystem\Liplis.resx">
       <DependentUpon>Liplis.cs</DependentUpon>
@@ -1593,13 +1597,8 @@
     <None Include="Resources\widRss.png" />
     <None Include="Resources\widSys.png" />
     <None Include="bin\Release\skin\Lili\window\window.png" />
+    <Content Include="Dll\LiplisLibCommon.dll" />
     <Content Include="liplis.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Liplis\LiplisLibCommon\LiplisLibCommon.csproj">
-      <Project>{acd8dc50-d309-45bc-b782-94391312dcf6}</Project>
-      <Name>LiplisLibCommon</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

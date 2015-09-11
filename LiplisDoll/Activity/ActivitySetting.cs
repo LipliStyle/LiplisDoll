@@ -171,6 +171,9 @@ namespace Liplis.Activity
                     break;
             }
 
+            //ウインドウ追随設定
+            chkWindowChase.Checked = LpsLiplisUtil.bitToBool(os.talkChase);
+
             //詳細ウインドウ表示
             chkVoice.Checked = LpsLiplisUtil.bitToBool(os.lpsVoiceOn);
 
@@ -314,6 +317,7 @@ namespace Liplis.Activity
         private void onEnvironment()
         {
             grpSetActive.Visible   = true;
+            grpSetting.Visible     = true;
             grpWindow.Visible      = true;
             grpVoice.Visible       = false;
             grpSynchronism.Visible = false;
@@ -325,6 +329,7 @@ namespace Liplis.Activity
         private void onVoice()
         {
             grpSetActive.Visible   = false;
+            grpSetting.Visible     = false;
             grpWindow.Visible      = false;
             grpVoice.Visible       = true;
             grpSynchronism.Visible = false;
@@ -572,6 +577,7 @@ namespace Liplis.Activity
         }
         #endregion
 
+
         ///====================================================================
         ///
         ///                        ウインドウ関連
@@ -667,31 +673,14 @@ namespace Liplis.Activity
 
         ///====================================================================
         ///
-        ///                         メニューの出し方
+        ///                               設定
         ///                         
         ///====================================================================
-        #region メニューの出し方
-        private void rboMeneActMouthOn_CheckedChanged(object sender, EventArgs e)
-        {
-            os.menuTiming = 0;
-            savePreference();
-        }
 
-        private void rboMeneActRigthClick_CheckedChanged(object sender, EventArgs e)
+        #region 設定
+        private void chkWindowChase_CheckedChanged(object sender, EventArgs e)
         {
-            os.menuTiming = 1;
-            savePreference();
-        }
-
-        private void rboMeneBox_CheckedChanged(object sender, EventArgs e)
-        {
-            os.menuType = 1;
-            savePreference();
-        }
-
-        private void rboMeneCricle_CheckedChanged(object sender, EventArgs e)
-        {
-            os.menuType = 0;
+            os.talkChase = LpsLiplisUtil.boolToBit(chkWindowChase.Checked);
             savePreference();
         }
         #endregion
@@ -1256,6 +1245,7 @@ namespace Liplis.Activity
 
 
         #endregion
+
 
     }
 }
