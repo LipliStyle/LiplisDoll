@@ -142,7 +142,7 @@ namespace Liplis.Common
         public const string LIPLIS_NEW_EXE                        = @"http://liplis.mine.nu/LiplisWinUpd/1_X/Liplis.lps";
         public const string LIPLIS_NEW_XML                        = @"http://liplis.mine.nu/LiplisWinUpd/1_X/version.xml";
 
-        public const string LIPLIS_HELP                           = @"http://liplis.mine.nu/lipliswiki/webroot/?LiplisWindows%20Manual";
+        public const string LIPLIS_DOLL_HELP                      = @"http://liplis.mine.nu/LiplisWiki/webroot/?LiplisDoll%20Manual";
         public const string LIPLIS_LIPLISTYLE                     = @"http://liplis.mine.nu/";
 
         public const string LIPLIS_FREE_TALK                      = @"http://liplis.mine.nu/Clalis/v41/Liplis/ClalisForLiplisFreeTalk.aspx";
@@ -812,6 +812,7 @@ namespace Liplis.Common
         public const int LM_TOPIC_RELOAD     = 27;
         public const int LM_CHANGE_SPEED     = 28;
         public const int LM_CHANGE_MODE      = 29;
+        public const int LM_CHANGE_STOP     = 30;
 
         public const int LM_WIN_FONTS　                 =　1001;
         public const int LM_WIN_IEXPLORE　              =　1002;

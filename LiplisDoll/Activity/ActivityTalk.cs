@@ -60,14 +60,18 @@ namespace Liplis.Activity
         protected static LpsDelegate.dlgI1ToVoid reqSetWindowMode;
         protected static LpsDelegate.dlgVoidToVoid reqCallBrowser;
         protected static LpsDelegate.dlgI2ToVoid reqSetEmotion;
-
         #endregion
 
+        ///====================================================================
+        ///
+        ///                            初期化処理
+        ///                         
+        ///====================================================================
+        #region 初期化処理
         /// <summary>
         /// コンストラクター
         /// 2013/08/31 ver3.0.5 ossも設定するように変更
         /// </summary>
-        #region ActivityTalk
         public ActivityTalk(Liplis.MainSystem.Liplis lips, ObjSetting os, ObjSkinSetting oss)
             : base()
         {
@@ -96,13 +100,11 @@ namespace Liplis.Activity
         {
 
         }
-        #endregion
 
         /// <summary>
         /// initDelegate
         /// delegateの初期化
         /// </summary>
-        #region initDelegate
         protected void initDelegate()
         {
             //セットテキストデリゲート
@@ -117,12 +119,10 @@ namespace Liplis.Activity
             //コールブラウザ
             reqCallBrowser = new LpsDelegate.dlgVoidToVoid(dlgCallBrowser);
         }
-        #endregion
 
         /// <summary>
         /// initWheel
         /// </summary>
-        #region ホイールイベントのイニシャライズ
         protected void initWheel()
         {
             // 予め、コントロールにフォーカスを当ててやる必要があるので注意。
@@ -135,13 +135,11 @@ namespace Liplis.Activity
             this.ResumeLayout(false);
 
         }
-        #endregion
 
         /// <summary>
         /// HTMLの初期化
         /// 2013/08/31 ver3.0.5 フォントカラーを設定するように変更
         /// </summary>
-        #region initHtml
         protected void initHtml()
         {
             StringBuilder sb = new StringBuilder();
@@ -167,34 +165,43 @@ namespace Liplis.Activity
             //this.wbTalk.DocumentText = sb.ToString();
             this.wbTalk.Navigate(fname);
         }
-        #endregion
+       
+
+        /// <summary>
+        /// サイズ設定メソッドのオーバーライド
+        /// ウインドウサイズは画像サイズに合わせるように変更
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        public override void setSize(int width, int height)
+        {
+            this.Size = new Size(width, height);
+
+            //this.wbTalk = new System.Windows.Forms.WebBrowser();
+            //System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActivityTalk));
+            //resources.ApplyResources(this.wbTalk, "wbTalk");
+            //this.wbTalk.Name = "wbTalk";
+            //this.wbTalk.ScrollBarsEnabled = false;
+            //this.wbTalk.Url = new System.Uri("http://m", System.UriKind.Absolute);
 
 
-        ///====================================================================
-        ///
-        ///                          onLoad
-        ///                         
-        ///====================================================================
+            this.wbTalk.Width = this.Width - (int)(this.Width * 0.02);
+            this.wbTalk.Height = this.Height - (int)(this.Width * 0.14);
 
+        }
+  
         /// <summary>
         /// initTalkWindow
         /// initTalkWindowの初期化
         /// ☆Miniオーバーライド
         /// </summary>
-        #region initTalkWindow
         protected virtual void initTalkWindow()
         {
             //一時背景の設定と透過の設定(透明で初期化)
             setWindowProperty(FctCreateFromResource.getTranse());
 
-            //ウインドウサイズ設定 デザイナの設定を継承
-            setSize(WIDTH, HEIGHT);
-
             //オーパシティ
             this.Opacity = 1;
-
-            //ショウタスクバー
-            this.ShowInTaskbar = false;
 
             //フォントカラーの適用
             linkColor = LpsLiplisUtil.checkColor(oss.linkColor,Color.Blue);
@@ -213,7 +220,7 @@ namespace Liplis.Activity
         ///                          onRecive
         ///                         
         ///====================================================================
-        
+
         /// <summary>
         /// ロードイベント
         /// </summary>
@@ -377,8 +384,7 @@ namespace Liplis.Activity
         #region ActivityTalk_Resize 
         private void ActivityTalk_Resize(object sender, EventArgs e)
         {
-            //this.wbTalk.Width = this.Width - 2;
-            //this.wbTalk.Height = this.Height - 28;
+
         }
         #endregion
 
@@ -653,6 +659,7 @@ namespace Liplis.Activity
         {
             setTextWindow(msg);
             this.Refresh();
+            Application.DoEvents();
         }
         #endregion
         
@@ -710,6 +717,9 @@ namespace Liplis.Activity
             this.BackgroundImage.Dispose();
             this.BackgroundImage = null;
             this.BackgroundImage = new Bitmap(os.getWindowPath());
+
+            //ここでサイズを設定
+            setSize(this.BackgroundImage.Width, this.BackgroundImage.Height);
         }
         #endregion
 

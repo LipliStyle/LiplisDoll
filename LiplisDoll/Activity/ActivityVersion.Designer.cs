@@ -36,7 +36,6 @@
             this.linkMail = new System.Windows.Forms.LinkLabel();
             this.lblVersion = new System.Windows.Forms.Label();
             this.btnClose = new Liplis.Control.CusCtlButton();
-            this.btnVersion = new Liplis.Control.CusCtlButton();
             ((System.ComponentModel.ISupportInitialize)(this.picVar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,11 +62,11 @@
             this.Liplis.AutoSize = true;
             this.Liplis.BackColor = System.Drawing.Color.Transparent;
             this.Liplis.ForeColor = System.Drawing.Color.Black;
-            this.Liplis.Location = new System.Drawing.Point(6, 17);
+            this.Liplis.Location = new System.Drawing.Point(6, 31);
             this.Liplis.Name = "Liplis";
-            this.Liplis.Size = new System.Drawing.Size(32, 12);
+            this.Liplis.Size = new System.Drawing.Size(56, 12);
             this.Liplis.TabIndex = 96;
-            this.Liplis.Text = "Liplis";
+            this.Liplis.Text = "Liplis Doll";
             // 
             // linkSite
             // 
@@ -97,9 +96,9 @@
             // 
             this.lblVersion.BackColor = System.Drawing.Color.Transparent;
             this.lblVersion.ForeColor = System.Drawing.Color.Black;
-            this.lblVersion.Location = new System.Drawing.Point(44, 16);
+            this.lblVersion.Location = new System.Drawing.Point(68, 30);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(121, 12);
+            this.lblVersion.Size = new System.Drawing.Size(97, 13);
             this.lblVersion.TabIndex = 93;
             this.lblVersion.Text = "Version";
             // 
@@ -113,22 +112,11 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnVersion
-            // 
-            this.btnVersion.Location = new System.Drawing.Point(38, 35);
-            this.btnVersion.Name = "btnVersion";
-            this.btnVersion.Size = new System.Drawing.Size(100, 23);
-            this.btnVersion.TabIndex = 100;
-            this.btnVersion.Text = "バージョン確認";
-            this.btnVersion.UseVisualStyleBackColor = true;
-            this.btnVersion.Click += new System.EventHandler(this.btnVersion_Click);
-            // 
             // ActivityVersion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 182);
-            this.Controls.Add(this.btnVersion);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.picVar);
@@ -156,6 +144,5 @@
         private System.Windows.Forms.LinkLabel linkMail;
         private System.Windows.Forms.Label lblVersion;
         private Control.CusCtlButton btnClose;
-        private Control.CusCtlButton btnVersion;
     }
 }

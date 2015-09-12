@@ -104,6 +104,8 @@
             this.rbWindow2 = new System.Windows.Forms.RadioButton();
             this.picWindow1 = new System.Windows.Forms.PictureBox();
             this.rbWindow1 = new System.Windows.Forms.RadioButton();
+            this.grpSetting = new System.Windows.Forms.GroupBox();
+            this.chkWindowChase = new System.Windows.Forms.CheckBox();
             this.ms = new System.Windows.Forms.MenuStrip();
             this.tsmSave = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmDefault = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,8 +113,8 @@
             this.tsmHelpLiplisWindows = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmHelpLipliStyle = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmVersion = new System.Windows.Forms.ToolStripMenuItem();
-            this.grpSetting = new System.Windows.Forms.GroupBox();
-            this.chkWindowChase = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.spc)).BeginInit();
             this.spc.Panel1.SuspendLayout();
             this.spc.Panel2.SuspendLayout();
@@ -134,8 +136,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWindow3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWindow2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWindow1)).BeginInit();
-            this.ms.SuspendLayout();
             this.grpSetting.SuspendLayout();
+            this.ms.SuspendLayout();
             this.SuspendLayout();
             // 
             // spc
@@ -778,6 +780,8 @@
             // 
             // grpWindow
             // 
+            this.grpWindow.Controls.Add(this.label8);
+            this.grpWindow.Controls.Add(this.label5);
             this.grpWindow.Controls.Add(this.picWindow7);
             this.grpWindow.Controls.Add(this.rbWindow7);
             this.grpWindow.Controls.Add(this.picWindow6);
@@ -795,7 +799,7 @@
             this.grpWindow.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpWindow.Location = new System.Drawing.Point(3, 580);
             this.grpWindow.Name = "grpWindow";
-            this.grpWindow.Size = new System.Drawing.Size(517, 172);
+            this.grpWindow.Size = new System.Drawing.Size(517, 223);
             this.grpWindow.TabIndex = 103;
             this.grpWindow.TabStop = false;
             this.grpWindow.Text = "ウインドウ";
@@ -947,6 +951,27 @@
             this.rbWindow1.UseVisualStyleBackColor = true;
             this.rbWindow1.CheckedChanged += new System.EventHandler(this.rbWindow1_CheckedChanged);
             // 
+            // grpSetting
+            // 
+            this.grpSetting.Controls.Add(this.chkWindowChase);
+            this.grpSetting.Location = new System.Drawing.Point(3, 809);
+            this.grpSetting.Name = "grpSetting";
+            this.grpSetting.Size = new System.Drawing.Size(517, 61);
+            this.grpSetting.TabIndex = 14;
+            this.grpSetting.TabStop = false;
+            this.grpSetting.Text = "その他設定";
+            // 
+            // chkWindowChase
+            // 
+            this.chkWindowChase.AutoSize = true;
+            this.chkWindowChase.Location = new System.Drawing.Point(9, 22);
+            this.chkWindowChase.Name = "chkWindowChase";
+            this.chkWindowChase.Size = new System.Drawing.Size(190, 16);
+            this.chkWindowChase.TabIndex = 1;
+            this.chkWindowChase.Text = "ウインドウをキャラクターに追随させる";
+            this.chkWindowChase.UseVisualStyleBackColor = true;
+            this.chkWindowChase.CheckedChanged += new System.EventHandler(this.chkWindowChase_CheckedChanged);
+            // 
             // ms
             // 
             this.ms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -987,15 +1012,15 @@
             // 
             this.tsmHelpLiplisWindows.Image = global::Liplis.Properties.Resources.sel_topic;
             this.tsmHelpLiplisWindows.Name = "tsmHelpLiplisWindows";
-            this.tsmHelpLiplisWindows.Size = new System.Drawing.Size(179, 22);
-            this.tsmHelpLiplisWindows.Text = "LiplisWindowsヘルプ";
+            this.tsmHelpLiplisWindows.Size = new System.Drawing.Size(151, 22);
+            this.tsmHelpLiplisWindows.Text = "LiplisDollヘルプ";
             this.tsmHelpLiplisWindows.Click += new System.EventHandler(this.tsmHelpLiplisWindows_Click);
             // 
             // tsmHelpLipliStyle
             // 
             this.tsmHelpLipliStyle.Image = global::Liplis.Properties.Resources.sel_setting;
             this.tsmHelpLipliStyle.Name = "tsmHelpLipliStyle";
-            this.tsmHelpLipliStyle.Size = new System.Drawing.Size(179, 22);
+            this.tsmHelpLipliStyle.Size = new System.Drawing.Size(151, 22);
             this.tsmHelpLipliStyle.Text = "LipliStyleサイト";
             this.tsmHelpLipliStyle.Click += new System.EventHandler(this.tsmHelpLipliStyle_Click);
             // 
@@ -1006,26 +1031,23 @@
             this.tsmVersion.Text = "バージョン情報";
             this.tsmVersion.Click += new System.EventHandler(this.tsmVersion_Click);
             // 
-            // grpSetting
+            // label5
             // 
-            this.grpSetting.Controls.Add(this.chkWindowChase);
-            this.grpSetting.Location = new System.Drawing.Point(3, 758);
-            this.grpSetting.Name = "grpSetting";
-            this.grpSetting.Size = new System.Drawing.Size(517, 61);
-            this.grpSetting.TabIndex = 14;
-            this.grpSetting.TabStop = false;
-            this.grpSetting.Text = "その他設定";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(14, 171);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(406, 12);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "ウインドウのサイズを変更するには、スキンのウインドウ画像のサイズを変更してください。";
             // 
-            // chkWindowChase
+            // label8
             // 
-            this.chkWindowChase.AutoSize = true;
-            this.chkWindowChase.Location = new System.Drawing.Point(9, 22);
-            this.chkWindowChase.Name = "chkWindowChase";
-            this.chkWindowChase.Size = new System.Drawing.Size(190, 16);
-            this.chkWindowChase.TabIndex = 1;
-            this.chkWindowChase.Text = "ウインドウをキャラクターに追随させる";
-            this.chkWindowChase.UseVisualStyleBackColor = true;
-            this.chkWindowChase.CheckedChanged += new System.EventHandler(this.chkWindowChase_CheckedChanged);
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(14, 190);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(255, 12);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "ウインドウは画像サイズの大きさに自動調整されます。";
             // 
             // ActivitySetting
             // 
@@ -1068,10 +1090,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.picWindow3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWindow2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWindow1)).EndInit();
-            this.ms.ResumeLayout(false);
-            this.ms.PerformLayout();
             this.grpSetting.ResumeLayout(false);
             this.grpSetting.PerformLayout();
+            this.ms.ResumeLayout(false);
+            this.ms.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1163,5 +1185,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox grpSetting;
         private System.Windows.Forms.CheckBox chkWindowChase;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label5;
     }
 }

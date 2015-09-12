@@ -367,7 +367,7 @@ namespace Liplis.Activity
 
         private void tsmHelpLiplisWindows_Click(object sender, EventArgs e)
         {
-            dlgCallBrowser(LiplisDefine.LIPLIS_HELP);
+            dlgCallBrowser(LiplisDefine.LIPLIS_DOLL_HELP);
         }
 
         private void tsmHelpLipliStyle_Click(object sender, EventArgs e)

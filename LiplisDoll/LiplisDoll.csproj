@@ -92,6 +92,9 @@
     <Compile Include="Activity\ActivityVersion.Designer.cs">
       <DependentUpon>ActivityVersion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cmp\Form\cusDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Cmp\Form\CustomTextBox.cs">
       <SubType>Component</SubType>
     </Compile>

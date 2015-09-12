@@ -2,6 +2,7 @@
 //  ClassName : Liplis
 // ■概要      : Liplisのメインクラス
 //
+//
 // Copyright(c) 2014 LipliStyle さちん MITライセンス
 //=======================================================================
 using System;
@@ -1031,6 +1032,9 @@ namespace Liplis.MainSystem
                     break;
                 case LiplisDefine.LM_CHANGE_MODE:          //2015/09/04 Liplis4.5.7 おしゃべり品どう更新ロジック変更
                     chatFreqChange();
+                    break;
+                case LiplisDefine.LM_CHANGE_STOP:          
+                    chatStop();
                     break;
                     
 
