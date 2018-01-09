@@ -1,10 +1,17 @@
 ﻿//=======================================================================
 //  ClassName : Liplis
-// ■概要      : Liplisのメインクラス
 //
+//■ Liplis Doll 1.0
+//　2013/09/12 Liplis Doll 1.0 リリース
 //
-// Copyright(c) 2014 LipliStyle さちん MITライセンス
+// Copyright(c) 2015 LipliStyle さちん MITライセンス
 //=======================================================================
+using Liplis.Activity;
+using Liplis.Common;
+using Liplis.Fct;
+using Liplis.Msg;
+using Liplis.Voice;
+using Liplis.Web;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,12 +20,6 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using Liplis.Activity;
-using Liplis.Common;
-using Liplis.Fct;
-using Liplis.Msg;
-using Liplis.Web;
-using Liplis.Voice;
 
 namespace Liplis.MainSystem
 {
