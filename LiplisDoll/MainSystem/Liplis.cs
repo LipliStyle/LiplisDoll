@@ -3108,7 +3108,7 @@ namespace Liplis.MainSystem
                 if (liplisNowTopic.result.Length > cntLct - 1 )
                 {
                     Invoke(new LpsDelegate.dlgS1ToVoid(at.setTextTotalkWindow), liplisChatText);
-                    Invoke(new LpsDelegate.dlgI2ToVoid(at.setEmotionWindow), nowEmotion, nowPoint);
+                    //Invoke(new LpsDelegate.dlgI2ToVoid(at.setEmotionWindow), nowEmotion, nowPoint);
                 }
                 
                 return true;
